@@ -11,4 +11,15 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+  <p>coucou fredttttrrrt{{1+1}}</p>
+  <p>{{titre}}+{{firsName}}</p>
+  <!--   cible du binding -->
+dom: <input type="texte" [value]="name">
+attr:<input type="texte" value="{{name}}">
+<p [innerText]= "name"></p>
+<p>{{name}}</p>
+
+ <!--   cible vue vers model -->
+double binding<input type="text"[(ngModel)]=name>
+<button (click)="doClick()">appel méthode dans fichier .ts</button>
 </ion-content>

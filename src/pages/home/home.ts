@@ -7,8 +7,15 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  titre ='app works';
+  firsName ="robert";
+  name = "dupont";
   constructor(public navCtrl: NavController) {
 
+  }
+
+  doClick(){
+    this.name = "click sur button";
   }
 
 }
