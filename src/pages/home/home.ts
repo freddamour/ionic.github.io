@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
-/* import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { map } from 'rxjs/operators';
-import { Subject } from 'rxjs/Subject' */;
+import { Observable } from 'rxjs';
+
 
 
 
@@ -44,15 +40,21 @@ export class HomePage {
     //Observable.create reçoit une fonction qui émet des événements sur son paramètre observer
     const observable = Observable.create((observer) => observer.next('hello'));
           observable.subscribe((value) => console.log(value));
+
+    const myObservable = Observable.from([1,2,4,5])
+    myObservable.subscribe((i) => console.log(i));
     
+    const myObservable2 = Observable.interval(1000)
+    myObservable2.subscribe((i) => (console.log(i)));
+
     // observation des Event
     window.onload= function(){
       var btn = document.getElementById('btn');
       var source = Observable.fromEvent(btn,'click');
       source.subscribe((data) => console.log("obs1"+data));
-      }
+     }
    
-   
+      
   }
 
   
