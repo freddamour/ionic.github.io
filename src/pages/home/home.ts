@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 
+import {Item} from '../../app/models/item'
+import {Config} from '../../app/models/config'
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,21 +14,24 @@ import { Observable } from 'rxjs';
 export class HomePage {
 //passage d'information du composant vers template
 //interpolation par {{}} ou []=
-  private titre: string;
-  private firsName: string;
-  private name: string;
-  private collection: [any];
-  public newItem:  {reference:string, name:string, state:number};
+  public titre: string;
+  public version: string;
+  public firsName: string;
+  public name: string;
+  
+  public collection: [Item];
+  public newItem: Item;
 
 
   constructor(public navCtrl: NavController) {
-    this.titre ='app works';
+    this.titre = Config.APP_TITLE;
+    this.version = Config.APP_Version;
     this.firsName ="robert";
     this.name = "dupont";
     this.collection = [ 
-      {reference:'1234',name:'toto',state:0},
-      {reference:'3456',name:'titi',state:1},
-      {reference:'5678',name:'tata',state:2},
+      new Item({reference:'1234',name:'toto',state:0}),
+      new Item({reference:'3456',name:'titi',state:1}),
+      new Item({reference:'5678',name:'tata',state:2})
     ];
     
     this.testObservable();
@@ -33,7 +39,7 @@ export class HomePage {
   }// fin constructeur
   resetNewItem(){
 
-    this.newItem={reference:'',name:'',state:0};
+    this.newItem=new Item({reference:'',name:'',state:0});
   }
   getDetails(event:Event, parameter){
     event.preventDefault();
