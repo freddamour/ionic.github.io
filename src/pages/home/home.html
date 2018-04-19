@@ -6,14 +6,36 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
 
+  <form #todoForm = "ngForm"  >
     
 
+<div class="form-group">
+  <input type="number" name="reference" id="" placeholder="reference" [(ngModel)]="model.reference" class="form-control">
+  {{model.reference}}
+</div>
+<div class="form-group">
+  <input type="text" #todoName name="name" id="" placeholder="name" [(ngModel)]="model.name" class="form-control" >
+  {{todoName.className}}
+</div>
+<div class="form-group">
+  <select name="" id=""  class="form-control">
+    <option *ngFor="let v of choix" value="{{v}}">{{v}}</option>
+    
+  </select>
+  <input type="number" name="state" id="" placeholder="state" [(ngModel)]="model.state" >
+</div>
+{{model | json}}
+    <button type="submit" (click)="EnvoyerAjax()" >Envoyer</button>
+</form>
 
 
+<a href="https://placeholder.com"><img src="http://via.placeholder.com/350x150"></a>
 <h1> {{titre}}</h1>
 <h2>{{version}}</h2>
+
 
   bla bla.
   <p>
@@ -30,6 +52,7 @@
 <input type="text" name="" id="" [(ngModel)]="newItem.reference">
 <input type="text" name="" id="" [(ngModel)]="newItem.name">
 <input type="text" name="" id="" [(ngModel)]="newItem.state">
+<input type="text" name="" id="" [(ngModel)]="newItem.image">
 
 <!--   utile pour la maintenance -->
 <p> {{newItem |json}}</p>
@@ -43,6 +66,9 @@
   <p> Référense: {{item.reference}}</p>
   <p> nom: {{item.name}}</p>
   <p> state: {{item.state}}</p>
+  <a href="https://placeholder.com"><img src="{{item.image}}"></a>
+  <p> image: {{item.image}}</p>
+  
 
   <!--   définition de l'objet $event -->
   <a href="" id="{{item.reference}}" (click)="getDetails($event, 'test')">vers getDetails</a>

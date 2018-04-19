@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs';
+//import {provideForms} from '@angular/forms'
 
 import {Item} from '../../app/models/item'
 import {Config} from '../../app/models/config'
@@ -22,31 +23,38 @@ export class HomePage {
   public collection: [Item];
   public newItem: Item;
 
+  public model: Item;
+  public choix = ['a faire','en cours', 'fait'];
 
-  constructor(public navCtrl: NavController) {
+  
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.titre = Config.APP_TITLE;
     this.version = Config.APP_Version;
     this.firsName ="robert";
     this.name = "dupont";
     this.collection = [ 
-      new Item({reference:'1234',name:'toto',state:0}),
-      new Item({reference:'3456',name:'titi',state:1}),
-      new Item({reference:'5678',name:'tata',state:2})
+      new Item({reference:'1234', name:'toto', state:0, image:'http://via.placeholder.com/350x150'}),
+      new Item({reference:'3456', name:'titi', state:1, image:'http://via.placeholder.com/350x150'}),
+      new Item({reference:'5678', name:'tata', state:2, image:'http://via.placeholder.com/350x150'})
     ];
+console.log(this.collection);
+    this.model =new Item({reference:'1234',name:'toto',state:0,image:'http://via.placeholder.com/350x150'})
     
     this.testObservable();
     this.resetNewItem();
   }// fin constructeur
   resetNewItem(){
 
-    this.newItem=new Item({reference:'',name:'',state:0});
+    this.newItem=new Item({reference:'',name:'',state:0,image:''});
   }
   getDetails(event:Event, parameter){
     event.preventDefault();
     console.log(event);
     let eventEnCours = event.target || event.currentTarget || event.srcElement;
-    console.log(eventEnCours.attributes.id); //affiche id=1234
-    console.log(eventEnCours.id); // affiche 1234
+    //console.log(eventEnCours.attributes.id); //affiche id=1234
+   // console.log(eventEnCours.id); // affiche 1234
     console.log(parameter);
    
   }
@@ -90,7 +98,9 @@ export class HomePage {
       
   }
 
-  
+  EnvoyerAjax(){
+    console.log(this.model)
+  }
 
 
 }//fin constructeur
