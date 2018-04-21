@@ -22,4 +22,13 @@ export class FilmsPage {
     console.log('ionViewDidLoad FilmsPage');
   }
 
+  openDetails() {
+    this.navCtrl.push('FilmDetailsPage');
+  }
+ 
+  goToPlanets() {
+    this.navCtrl.parent.select(1);
+  }
+
+
 }

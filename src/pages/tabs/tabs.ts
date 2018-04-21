@@ -1,14 +1,9 @@
-import { FilmsPage } from './../films/films';
-
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TabsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+//page
+import { FilmsPage } from './../films/films';
+
 
 @IonicPage()
 @Component({
@@ -16,6 +11,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
+  // repère des pages ( tabulation)
   tab1 = 'FilmsPage';
   tab2 = 'PeoplePage';
   tab3 = 'PlanetsPage';
@@ -26,6 +22,8 @@ export class TabsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
   }
+
+  
 
   navigerVersfilms(){
     this.navCtrl.push(FilmsPage);

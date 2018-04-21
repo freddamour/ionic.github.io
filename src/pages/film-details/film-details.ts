@@ -14,9 +14,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'film-details.html',
 })
 export class FilmDetailsPage {
+  filmId = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.filmId = this.navParams.get('filmID');
+    this.ionViewDidLoad();
+    console.log(this.filmId);
   }
+
+  goBack() {
+    this.navCtrl.pop();
+  }
+ 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FilmDetailsPage');

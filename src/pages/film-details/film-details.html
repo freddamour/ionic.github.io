@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primaire">
     <ion-title>filmDetails</ion-title>
   </ion-navbar>
 
@@ -14,5 +14,7 @@
 
 
 <ion-content padding>
+    Film ID: {{ filmId }}
+    <button ion-button full (click)="goBack()">Go Back!</button>
 
 </ion-content>
